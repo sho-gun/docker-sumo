@@ -5,7 +5,6 @@ LABEL Description="Dockerised Simulation of Urban MObility(SUMO)"
 
 ENV SUMO_VERSION 0.31.0
 ENV SUMO_HOME /opt/sumo
-ENV SUMO_USER your_username
 
 # Install system dependencies.
 RUN apt-get update && apt-get -qq install \
@@ -24,6 +23,3 @@ RUN tar xzf sumo-src-$SUMO_VERSION.tar.gz && \
 
 # Configure and build from source.
 RUN cd $SUMO_HOME && ./configure && make install
-
-RUN adduser $SUMO_USER --disabled-password
-# CMD sumo-gui
